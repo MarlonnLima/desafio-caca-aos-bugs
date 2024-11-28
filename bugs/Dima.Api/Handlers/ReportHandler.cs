@@ -8,8 +8,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Dima.Api.Handlers;
 
-public class ReportHandler(AppDbContext context) : IReportHandler
+public class ReportHandler : IReportHandler
 {
+    private readonly AppDbContext context;
+
+    public ReportHandler(AppDbContext context)
+    {
+        this.context = context;
+    }
+
     public async Task<Response<List<IncomesAndExpenses>?>> GetIncomesAndExpensesReportAsync(
         GetIncomesAndExpensesRequest request)
     {

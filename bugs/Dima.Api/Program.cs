@@ -11,12 +11,13 @@ builder.AddCrossOrigin();
 builder.AddDocumentation();
 builder.AddServices();
 
+
 var app = builder.Build();
+app.UseCors(ApiConfiguration.CorsPolicyName);
 
 if (app.Environment.IsDevelopment())
     app.ConfigureDevEnvironment();
 
-app.UseCors(ApiConfiguration.CorsPolicyName);
 app.UseSecurity();
 app.MapEndpoints();
 

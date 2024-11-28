@@ -1,3 +1,5 @@
+using static System.Net.WebRequestMethods;
+
 namespace Dima.Core;
 
 public static class Configuration
